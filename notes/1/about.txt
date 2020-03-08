@@ -1,0 +1,13 @@
+Electron
+a mix of chrome &&  node
+
+CHROME
+- html5
+- gpu accelleration
+- blink
+- v8
+ 
+NODE
+- filesystem access...
+- native modules
+
