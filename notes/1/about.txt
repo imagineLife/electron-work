@@ -16,5 +16,36 @@ WHO USES IT
 - vsCode
 - slack
 - GitHub client
+- wordpress desktop
+- whatsApp desktop
 ...https://www.electronjs.org/apps
+
+
+HERE, BUILDING...
+- a txt-to-md translator
+	- open/save to file-system
+	- use default text-editing tool
+
+- clipMaster, clipboard manager
+	- transpile sass, babel, etc.
+	- make a menu-bar app out of it
+	- include global shortcuts
+	- native notifications
+
+ALSO
+- integration tests (selenium)
+- package the app for distribution
+- setup a server to receive crash reports
+- 
+
+
+The "PROCESS MODEL" of electron
+- starts using "main" entry in package.json
+	- ONE main process
+	- 0 or more "render" processes
+		- these are like GUIS that are slaves of the main process
+
+
+
+
 
