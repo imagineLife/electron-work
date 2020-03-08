@@ -11,3 +11,10 @@ NODE
 - filesystem access...
 - native modules
 
+
+WHO USES IT
+- vsCode
+- slack
+- GitHub client
+...https://www.electronjs.org/apps
+
