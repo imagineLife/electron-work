@@ -41,9 +41,14 @@ ALSO
 
 The "PROCESS MODEL" of electron
 - starts using "main" entry in package.json
-	- ONE main process
-	- 0 or more "render" processes
+	- uses ONE main process
+	- uses 0 or more "render" processes
 		- these are like GUIS that are slaves of the main process
+		... if there is no need for a "render" process, then... maybe just use a node server?!
+
+	- npm start will run main.js, serving index.html, serving renderer.js && styles...etc
+
+	- 
 
 
 
