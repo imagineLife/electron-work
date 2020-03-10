@@ -18,3 +18,8 @@ markdownView.addEventListener('keyup', event => {
   const currentContent = event.target.value;
   renderMarkdownToHtml(currentContent);
 });
+
+// handle the open-file button
+openFileButton.addEventListener('click', () => {
+	console.log('CLICKED the REVEEAL BTN!');
+})

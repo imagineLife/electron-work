@@ -40,5 +40,6 @@ const getFileFromUser = () => {
 	const fileContent = fs.readFileSync(selectedFile).toString()
 	console.log('fileContent')
 	console.log(fileContent)
-	
 }
+
+module.exports.getFileFromUser = getFileFromUser
