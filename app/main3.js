@@ -34,7 +34,7 @@ app.on('ready', () => {
 			this listener is removed and then invoked.
 	*/
 	eWin.once('ready-to-show', () => {
-		eWin.show()
+		eWin.show();
 	})
 
 })
