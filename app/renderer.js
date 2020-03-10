@@ -7,6 +7,7 @@ const marked = require('marked');
 	 (web page) and the main process
 */
 const { remote } = require('electron')
+const mainP = remote.require('./main6');
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
@@ -30,4 +31,6 @@ markdownView.addEventListener('keyup', event => {
 // handle the open-file button
 openFileButton.addEventListener('click', () => {
 	console.log('CLICKED the REVEEAL BTN!');
+	mainP.getFileFromUser()
 })
+
