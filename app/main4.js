@@ -31,14 +31,21 @@ const getFileFromUser = () => {
 	*/
 	const loadedFiles = dialog.showOpenDialog({
 		//Contains which features the dialog should use.
-		properties: [ 'openFile' ]
+		properties: [ 'openFile' ],
+		/*
+			The filters specifies an array of
+			 file types that can be displayed or 
+			 selected when you want to limit 
+			 the user to a specific type.
+		*/
+		filter: [
+			{ name: 'Text Files': extension: ['txt', 'text'] },
+			{ name: 'Markdown Files', extensions: ['md', 'mdown', 'markdown']}
+		]
 	})
 
 	//load && parse the file
 	if(!loadedFiles) return;
 	const selectedFile = loadedFiles[0]
 	const fileContent = fs.readFileSync(selectedFile).toString()
-	console.log('fileContent')
-	console.log(fileContent)
-	
 }
