@@ -40,8 +40,8 @@ const getFileFromUser = () => {
 			 Now, files in the file dialog will be 
 			 'grayed out' when not of specified type(s)
 		*/
-		filter: [
-			{ name: 'Text Files': extension: ['txt', 'text'] },
+		filters: [
+			{ name: 'Text Files', extensions: ['txt', 'text'] },
 			{ name: 'Markdown Files', extensions: ['md', 'mdown', 'markdown']}
 		]
 	})
