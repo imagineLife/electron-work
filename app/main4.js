@@ -1,3 +1,4 @@
+const fs = require('fs');
 /*
 	Dialog
 	https://www.electronjs.org/docs/api/dialog
@@ -33,7 +34,11 @@ const getFileFromUser = () => {
 		properties: [ 'openFile' ]
 	})
 
-	console.log('loadedFiles')
-	console.log(loadedFiles)
+	//load && parse the file
+	if(!loadedFiles) return;
+	const selectedFile = loadedFiles[0]
+	const fileContent = fs.readFileSync(selectedFile).toString()
+	console.log('fileContent')
+	console.log(fileContent)
 	
 }
