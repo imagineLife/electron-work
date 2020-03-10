@@ -37,6 +37,8 @@ const getFileFromUser = () => {
 			 file types that can be displayed or 
 			 selected when you want to limit 
 			 the user to a specific type.
+			 Now, files in the file dialog will be 
+			 'grayed out' when not of specified type(s)
 		*/
 		filter: [
 			{ name: 'Text Files': extension: ['txt', 'text'] },
