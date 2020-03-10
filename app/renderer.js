@@ -1,4 +1,12 @@
 const marked = require('marked');
+/*
+	an electron import
+	https://www.electronjs.org/docs/api/remote#remote
+	...provides a simple way to do inter-process 
+	communication (IPC) between the renderer process
+	 (web page) and the main process
+*/
+const { remote } = require('electron')
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
