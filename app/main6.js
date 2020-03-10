@@ -10,7 +10,7 @@ app.on('ready', () => {
 	eWin.loadFile(`${__dirname}/index.html`)
 
 	// CALL the getFileFromUser
-	getFileFromUser();
+	// getFileFromUser();
 
 	eWin.once('ready-to-show', () => {
 		eWin.show();
