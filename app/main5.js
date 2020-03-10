@@ -23,8 +23,10 @@ const getFileFromUser = () => {
 		properties: [ 'openFile' ],
 		//file-type limiter
 		filters: [
-			{ name: 'Text Files', extensions: ['txt', 'text'] },
-			{ name: 'Markdown Files', extensions: ['md', 'mdown', 'markdown']}
+			{ 
+				name: 'Markdown Files', 
+				extensions: ['md', 'mdown', 'markdown']
+			}
 		],
 		//custom 'open' button txt
 		buttonLabel: 'Reveal',
@@ -36,4 +38,7 @@ const getFileFromUser = () => {
 	if(!loadedFiles) return;
 	const selectedFile = loadedFiles[0]
 	const fileContent = fs.readFileSync(selectedFile).toString()
+	console.log('fileContent')
+	console.log(fileContent)
+	
 }
