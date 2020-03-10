@@ -15,3 +15,22 @@
 	contains methods && events
 */
 const { app } = require('electron')
+
+/*
+	life-cycle events
+	...node event-emitting
+*/
+
+app.on('ready', () => {
+	console.log('App is ready!');
+})
+
+console.log('starting up...');
+
+/*
+	consoles...
+> electron .
+
+starting up...
+App is ready!
+*/
