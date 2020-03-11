@@ -1,0 +1,13 @@
+render-to-main process
+
+MAIN process
+- can send data TO renderer process
+
+RENDER process
+
+
+FLOW
+- renderer process...
+- uses remote to call getFileFromUser()
+- use fs.open to readFile
+- send data back to renderer process
