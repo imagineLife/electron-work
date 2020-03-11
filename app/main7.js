@@ -37,9 +37,18 @@ const getFileFromUser = () => {
 	//load && parse the file
 	if(!loadedFiles) return;
 	const selectedFile = loadedFiles[0]
-	const fileContent = fs.readFileSync(selectedFile).toString()
-	console.log('fileContent')
-	console.log(fileContent)
+	
+	openFile(selectedFile)
+}
+
+const openFile = (f) => {
+	const fileContent = fs.readFileSync(f).toString()
+	/*
+		webContents
+		https://www.electronjs.org/docs/api/web-contents#webcontents
+		...responsible for rendering and controlling a web page and is a property of the BrowserWindow object
+	*/
+	eWin.webContents.send('file-opened', f, fileContent)
 }
 
 module.exports.getFileFromUser = getFileFromUser;
