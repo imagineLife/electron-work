@@ -6,8 +6,8 @@ const marked = require('marked');
 	communication (IPC) between the renderer process
 	 (web page) and the main process
 */
-const { remote } = require('electron')
-const mainP = remote.require('./main6');
+const { remote, ipcRenderer } = require('electron')
+const mainP = remote.require('./main7');
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
@@ -30,7 +30,10 @@ markdownView.addEventListener('keyup', event => {
 
 // handle the open-file button
 openFileButton.addEventListener('click', () => {
-	console.log('CLICKED the REVEEAL BTN!');
 	mainP.getFileFromUser()
 })
 
+ipcRenderer.on('file-opened', (e, file, fileContent) => {
+	markdownView.value = fileContent;
+	renderMarkdownToHtml(fileContent)
+})
