@@ -121,3 +121,9 @@ markdownView.addEventListener('dragover', (e) => {
 		markdownView.classList.add('drag-error')
 	}
 })
+
+markdownView.addEventListener('dragleave', () => {
+		markdownView.classList.remove('drag-over')
+		markdownView.classList.remove('drag-error')
+	}
+})
