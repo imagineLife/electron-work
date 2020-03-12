@@ -8,7 +8,7 @@ const path = require('path')
 	 (web page) and the main process
 */
 const { remote, ipcRenderer } = require('electron')
-const mainP = remote.require('./main9');
+const mainP = remote.require('./main10');
 const curWindow = remote.getCurrentWindow()
 
 /*
@@ -96,4 +96,28 @@ ipcRenderer.on('file-opened', (e, file, fileContent) => {
 	markdownView.value = fileContent;
 	renderMarkdownToHtml(fileContent)
 	updateUserInterface(false)
+})
+
+//drag-n-drop content
+document.addEventListener('dragstart', e => e.preventDefault())
+document.addEventListener('dragover', e => e.preventDefault())
+document.addEventListener('dragleave', e => e.preventDefault())
+document.addEventListener('drop', e => e.preventDefault())
+
+//drag-n-drop helpers
+const getDraggedFile = e => e.dataTransfer.items[0]
+const getDroppedFile = e => e.dataTransfer.files[0]
+const fileTypeIsSupported = thisFile => {
+	return ['text/plain', 'text/markdown'].includes(thisFile.type)
+}
+
+//css for dragging
+markdownView.addEventListener('dragover', (e) => {
+	const thisFile = getDraggedFile(e)
+	const isSupported = fileTypeIsSupported(thisFile)
+	if(isSupported){
+		markdownView.classList.add('drag-over')
+	}else{
+		markdownView.classList.add('drag-error')
+	}
 })
