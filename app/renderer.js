@@ -33,22 +33,26 @@ const renderMarkdownToHtml = markdown => {
 };
 
 const updateUserInterface = (isEdited) => {
-	console.log('HERE TWO?!');
 	let title = 'Fire Sale';
+	
+	//conditional file-name in title
 	if(filePathStr){
 		let thisFileName = path.basename(filePathStr)
-		title = `${thisFileName}${isEdited && "*"} ${title}`
+		title = `${thisFileName}${title}`
 	}
-	console.log({isEdited});
+
+	//conditional * in edited-state title
+	if(isEdited){
+		title = `${title}*`
+	}
+
 	curWindow.setTitle(title)
 }
 
 markdownView.addEventListener('keyup', event => {
   const currentContent = event.target.value;
-
   //changed edited val
   isEdited = currentContent !== originalContent;
-
   renderMarkdownToHtml(currentContent);
   updateUserInterface(isEdited)
 });
