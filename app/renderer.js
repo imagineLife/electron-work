@@ -8,7 +8,7 @@ const path = require('path')
 	 (web page) and the main process
 */
 const { remote, ipcRenderer } = require('electron')
-const mainP = remote.require('./main8');
+const mainP = remote.require('./main9');
 const curWindow = remote.getCurrentWindow()
 
 /*
@@ -83,6 +83,10 @@ saveMarkdownButton.addEventListener('click', () => {
 	mainP.saveMarkdown(filePathStr, markdownView.value)
 })
 
+saveHtmlButton.addEventListener('click', () => {
+	mainP.saveHtml(htmlView.innerHTML);
+})
+
 // runs on file-opened
 ipcRenderer.on('file-opened', (e, file, fileContent) => {
 	// Update app title
@@ -91,5 +95,5 @@ ipcRenderer.on('file-opened', (e, file, fileContent) => {
 
 	markdownView.value = fileContent;
 	renderMarkdownToHtml(fileContent)
-	updateUserInterface(isEdited)
+	updateUserInterface(false)
 })
