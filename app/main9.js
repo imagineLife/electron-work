@@ -13,7 +13,7 @@ app.on('ready', () => {
 })
 
 const getFileFromUser = () => {
-	const loadedFiles = dialog.showOpenDialog({
+	const loadedFiles = dialog.showOpenDialog(eWin, {
 		properties: [ 'openFile' ],
 		filters: [
 			{ 
@@ -50,7 +50,7 @@ const openFile = (f) => {
 }
 
 module.exports.saveHtml = content => {
-	const thisFile = dialog.showSaveDialog({
+	const thisFile = dialog.showSaveDialog(eWin,{
 		title: 'Save HTML',
 		defaultPath: app.getPath('desktop'),
 		filters: [
@@ -81,7 +81,7 @@ module.exports.saveMarkdown = (f, content) => {
 				- filePath (opt)
 				- bookmark (opt)
 		*/ 
-		f = dialog.showSaveDialog({
+		f = dialog.showSaveDialog(eWin,{
 			title: 'Save Markdown',
 
 			/*
