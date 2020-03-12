@@ -114,4 +114,5 @@ module.exports.saveMarkdown = (f, content) => {
 	openFile(f)
 }
 
+module.exports.openFile = openFile;
 module.exports.getFileFromUser = getFileFromUser;
