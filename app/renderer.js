@@ -8,7 +8,7 @@ const path = require('path')
 	 (web page) and the main process
 */
 const { remote, ipcRenderer } = require('electron')
-const mainP = remote.require('./main7');
+const mainP = remote.require('./main8');
 const curWindow = remote.getCurrentWindow()
 
 /*
