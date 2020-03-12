@@ -110,8 +110,11 @@ const getDroppedFile = e => e.dataTransfer.files[0]
 const fileTypeIsSupported = thisFile => {
 	return ['text/plain', 'text/markdown'].includes(thisFile.type)
 }
-
-//css for dragging
+const clearClasses = () => {
+	markdownView.classList.remove('drag-over')
+	markdownView.classList.remove('drag-error')
+}
+//events/css for dragging
 markdownView.addEventListener('dragover', (e) => {
 	const thisFile = getDraggedFile(e)
 	const isSupported = fileTypeIsSupported(thisFile)
@@ -123,7 +126,16 @@ markdownView.addEventListener('dragover', (e) => {
 })
 
 markdownView.addEventListener('dragleave', () => {
-		markdownView.classList.remove('drag-over')
-		markdownView.classList.remove('drag-error')
+	clearClasses()
+})
+
+markdownView.addEventListener('drop', (e) => {
+	const thisFile = getDroppedFile(e)
+	const isSupported = fileTypeIsSupported(thisFile)
+	if(isSupported){
+		mainP.openFile(thisFile.path)
+	}else{
+		alert('Sorry, that file is not supported here')
+		clearClasses()
 	}
 })
