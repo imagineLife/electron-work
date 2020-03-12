@@ -39,6 +39,12 @@ const updateUserInterface = (isEdited) => {
 	if(filePathStr){
 		let thisFileName = path.basename(filePathStr)
 		title = `${thisFileName}${title}`
+
+		/*
+			mac-only in-edit-state ui details
+		 - right-click title-bar to show file-path
+		*/
+		curWindow.setRepresentedFilename(filePathStr)
 	}
 
 	//conditional * in edited-state title
@@ -49,6 +55,12 @@ const updateUserInterface = (isEdited) => {
 	//update button-states
 	saveMarkdownButton.disabled = !isEdited;
 	revertButton.disabled = !isEdited;
+
+	/*
+		mac-only in-edit-state ui details
+		 - show dot in red-exit-button
+	*/
+	curWindow.setDocumentEdited(isEdited)
 
 	//update window title mac
 	curWindow.setTitle(title)
