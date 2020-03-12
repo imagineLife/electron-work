@@ -1,4 +1,5 @@
 const marked = require('marked');
+const path = require('path')
 /*
 	an electron import
 	https://www.electronjs.org/docs/api/remote#remote
@@ -8,6 +9,13 @@ const marked = require('marked');
 */
 const { remote, ipcRenderer } = require('electron')
 const mainP = remote.require('./main7');
+const curWindow = remote.getCurrentWindow()
+
+/*
+	File-name vars for app title
+*/ 
+let filePathStr = null;
+let originalContent = ''
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
@@ -23,6 +31,16 @@ const renderMarkdownToHtml = markdown => {
   htmlView.innerHTML = marked(markdown, { sanitize: true });
 };
 
+const updateUserInterface = () => {
+	console.log('HERE TWO?!');
+	let title = 'Fire Sale';
+	if(filePathStr){
+		let thisFileName = path.basename(filePathStr)
+		title = `${thisFileName} ${title}`
+	}
+	curWindow.setTitle(title)
+}
+
 markdownView.addEventListener('keyup', event => {
   const currentContent = event.target.value;
   renderMarkdownToHtml(currentContent);
@@ -33,7 +51,17 @@ openFileButton.addEventListener('click', () => {
 	mainP.getFileFromUser()
 })
 
+// runs on file-opened
+
 ipcRenderer.on('file-opened', (e, file, fileContent) => {
+	console.log('A');
+	
+	// Update app title
+	filePathStr = file;
+	originalContent = fileContent;
+
 	markdownView.value = fileContent;
 	renderMarkdownToHtml(fileContent)
+	console.log('HERE?!');
+	updateUserInterface()
 })
