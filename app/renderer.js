@@ -79,17 +79,17 @@ openFileButton.addEventListener('click', () => {
 	mainP.getFileFromUser()
 })
 
-// runs on file-opened
+saveMarkdownButton.addEventListener('click', () => {
+	mainP.saveMarkdown(filePathStr, markdownView.value)
+})
 
+// runs on file-opened
 ipcRenderer.on('file-opened', (e, file, fileContent) => {
-	console.log('A');
-	
 	// Update app title
 	filePathStr = file;
 	originalContent = fileContent;
 
 	markdownView.value = fileContent;
 	renderMarkdownToHtml(fileContent)
-	console.log('HERE?!');
 	updateUserInterface(isEdited)
 })
