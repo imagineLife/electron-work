@@ -46,6 +46,11 @@ const updateUserInterface = (isEdited) => {
 		title = `${title}*`
 	}
 
+	//update button-states
+	saveMarkdownButton.disabled = !isEdited;
+	revertButton.disabled = !isEdited;
+
+	//update window title mac
 	curWindow.setTitle(title)
 }
 
