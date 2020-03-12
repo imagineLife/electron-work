@@ -58,4 +58,47 @@ const openFile = (f) => {
 	eWin.webContents.send('file-opened', f, fileContent)
 }
 
+module.exports.saveMarkdown = (f, content) => {
+
+	//if no file
+	//give user option to pick-a-filename to save to
+	if(!f){
+
+		/*
+			Show-save-dialog
+			https://www.electronjs.org/docs/api/dialog#dialogshowsavedialogbrowserwindow-options
+			... RETURNS a promise
+			... RESOLVES with an object containing:
+				- canceled
+				- filePath (opt)
+				- bookmark (opt)
+		*/ 
+		f = dialog.showSaveDialog({
+			title: 'Save Markdown',
+
+			/*
+				get-path
+				https://www.electronjs.org/docs/api/app#appgetpathname
+				... returns string, path to a directory or file
+				 associated with param 
+			*/ 
+			defaultPath: app.getPath('desktop'),
+			/*
+				filters
+				https://www.electronjs.org/docs/api/dialog#dialogshowsavedialogbrowserwindow-options
+				...docs not helpful?!
+			*/
+			filters: [
+				{
+					name: 'Markdown Files',
+					extensions: [ 'md', 'markdown', 'mdown' ]
+				}
+			]
+		})
+	}
+
+	if(!f) return;
+	let res = fs.writeFileSync(f, content);
+}
+
 module.exports.getFileFromUser = getFileFromUser;
