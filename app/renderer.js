@@ -16,6 +16,7 @@ const curWindow = remote.getCurrentWindow()
 */ 
 let filePathStr = null;
 let originalContent = ''
+let isEdited = false;
 
 const markdownView = document.querySelector('#markdown');
 const htmlView = document.querySelector('#html');
@@ -31,19 +32,25 @@ const renderMarkdownToHtml = markdown => {
   htmlView.innerHTML = marked(markdown, { sanitize: true });
 };
 
-const updateUserInterface = () => {
+const updateUserInterface = (isEdited) => {
 	console.log('HERE TWO?!');
 	let title = 'Fire Sale';
 	if(filePathStr){
 		let thisFileName = path.basename(filePathStr)
-		title = `${thisFileName} ${title}`
+		title = `${thisFileName}${isEdited && "*"} ${title}`
 	}
+	console.log({isEdited});
 	curWindow.setTitle(title)
 }
 
 markdownView.addEventListener('keyup', event => {
   const currentContent = event.target.value;
+
+  //changed edited val
+  isEdited = currentContent !== originalContent;
+
   renderMarkdownToHtml(currentContent);
+  updateUserInterface(isEdited)
 });
 
 // handle the open-file button
@@ -63,5 +70,5 @@ ipcRenderer.on('file-opened', (e, file, fileContent) => {
 	markdownView.value = fileContent;
 	renderMarkdownToHtml(fileContent)
 	console.log('HERE?!');
-	updateUserInterface()
+	updateUserInterface(isEdited)
 })
