@@ -1,5 +1,10 @@
 const fs = require('fs');
-const { app, BrowserWindow, dialog } = require('electron')
+const { 
+	app, 
+	BrowserWindow, 
+	dialog, 
+	menu 
+} = require('electron')
 
 let eWin = null;
 
