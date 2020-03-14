@@ -70,6 +70,14 @@ const menuTemplate = [
 				click(){
 					console.log('Open File clicked!');
 				}
+			},
+			{
+				label: 'Copy',
+				role: 'copy'
+			},
+			{
+				label: 'Paste',
+				role: 'paste'
 			}
 		]
 	}
@@ -84,13 +92,18 @@ if(process.platform === 'darwin'){
 		label: applicationName,
 		submenu: [
 			{
-				label: `About ${applicationName}`
+				label: `About ${applicationName}`,
+				role: 'about'
 			},
 			{
 				label: `Quit ${applicationName}`,
-				click(){
-					app.quit()
-				}
+				// click(){
+				// 	//quits app
+				// 	// app.quit()
+				// }
+				//uses the ROLE attr
+				//  https://www.electronjs.org/docs/api/menu
+				role: 'quit'
 			}
 		]
 	})
