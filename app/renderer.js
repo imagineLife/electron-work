@@ -7,7 +7,7 @@ const path = require('path')
 	communication (IPC) between the renderer process
 	 (web page) and the main process
 */
-const { remote, ipcRenderer } = require('electron')
+const { remote, ipcRenderer, shell } = require('electron')
 const mainP = remote.require('./main10');
 const curWindow = remote.getCurrentWindow()
 
@@ -88,6 +88,18 @@ saveMarkdownButton.addEventListener('click', () => {
 
 saveHtmlButton.addEventListener('click', () => {
 	mainP.saveHtml(htmlView.innerHTML);
+})
+
+showFileButton.addEventListener('click', () => {
+	if(filePathStr) return;
+
+	// https://www.electronjs.org/docs/api/shell
+	shell.showItemInFolder(filePathStr)
+})
+
+openInDefaultButton.addEventListener('click', () => {
+	if(filePathStr) return;
+	shell.openItem(filePathStr)
 })
 
 // runs on file-opened
