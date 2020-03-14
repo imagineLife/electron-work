@@ -10,6 +10,8 @@ let eWin = null;
 
 app.on('ready', () => {
 
+	//connect menu to app using appMenu below
+	Menu.setApplicationMenu(appMenu)
 	eWin = new BrowserWindow({ show: false })
 	eWin.loadFile(`${__dirname}/index.html`)
 	eWin.once('ready-to-show', () => {
@@ -55,7 +57,7 @@ const openFile = (f) => {
 }
 
 /*
-	Customize toolabr menu
+	Customize toolbar menu
 */
 const menuTemplate = [
 	{
