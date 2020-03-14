@@ -3,7 +3,7 @@ const {
 	app, 
 	BrowserWindow, 
 	dialog, 
-	menu 
+	Menu 
 } = require('electron')
 
 let eWin = null;
@@ -53,6 +53,26 @@ const openFile = (f) => {
 	*/
 	eWin.webContents.send('file-opened', f, fileContent)
 }
+
+/*
+	Customize toolabr menu
+*/
+const menuTemplate = [
+	{
+		label: 'File',
+		submenu: [
+			{
+				label: 'Open File',
+				click(){
+					console.log('Open File clicked!');
+				}
+			}
+		]
+	}
+]
+Menu.buildFromTemplate({
+
+})
 
 module.exports.saveHtml = content => {
 	const thisFile = dialog.showSaveDialog(eWin,{
