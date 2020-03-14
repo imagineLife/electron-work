@@ -69,7 +69,9 @@ const menuTemplate = [
 				label: 'Open File',
 				click(){
 					console.log('Open File clicked!');
-				}
+				},
+				//custom hot-key
+				accelerator: 'CommandOrControl+O'
 			},
 			{
 				label: 'Copy',
