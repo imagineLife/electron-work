@@ -68,7 +68,7 @@ const menuTemplate = [
 			{
 				label: 'Open File',
 				click(){
-					console.log('Open File clicked!');
+					exports.getFileFromUser()
 				},
 				//custom hot-key
 				accelerator: 'CommandOrControl+O'
