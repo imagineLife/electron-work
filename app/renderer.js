@@ -55,12 +55,15 @@ const updateUserInterface = (isEdited) => {
 	//update button-states
 	saveMarkdownButton.disabled = !isEdited;
 	revertButton.disabled = !isEdited;
+	showFileButton.disabled = !filePathStr
+	openInDefaultButton.disabled = !filePathStr
 
 	/*
 		mac-only in-edit-state ui details
 		 - show dot in red-exit-button
 	*/
 	curWindow.setDocumentEdited(isEdited)
+
 
 	//update window title mac
 	curWindow.setTitle(title)
