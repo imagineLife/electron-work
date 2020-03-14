@@ -87,7 +87,10 @@ if(process.platform === 'darwin'){
 				label: `About ${applicationName}`
 			},
 			{
-				label: `Quit ${applicationName}`
+				label: `Quit ${applicationName}`,
+				click(){
+					app.quit()
+				}
 			}
 		]
 	})
