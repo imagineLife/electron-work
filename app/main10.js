@@ -58,6 +58,8 @@ const openFile = (f) => {
 
 /*
 	Customize toolbar menu
+	NOTE mac-os makes first menu default to application name
+	THIS ends up being os/platform-specific
 */
 const menuTemplate = [
 	{
@@ -72,6 +74,24 @@ const menuTemplate = [
 		]
 	}
 ]
+
+//taking advantage of node process
+// IS MAC
+if(process.platform === 'darwin'){
+	const applicationName = 'Fire Sale'
+	//add to first menu item
+	menuTemplate.unshift({
+		label: applicationName,
+		submenu: [
+			{
+				label: `About ${applicationName}`
+			},
+			{
+				label: `Quit ${applicationName}`
+			}
+		]
+	})
+}
 
 const appMenu = Menu.buildFromTemplate(menuTemplate)
 
