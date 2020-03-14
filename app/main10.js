@@ -70,9 +70,8 @@ const menuTemplate = [
 		]
 	}
 ]
-Menu.buildFromTemplate({
 
-})
+const appMenu = Menu.buildFromTemplate(menuTemplate)
 
 module.exports.saveHtml = content => {
 	const thisFile = dialog.showSaveDialog(eWin,{
