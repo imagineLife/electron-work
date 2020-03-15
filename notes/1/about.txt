@@ -48,8 +48,11 @@ The "PROCESS MODEL" of electron
 
 	- npm start will run main.js, serving index.html, serving renderer.js && styles...etc
 
-	- 
 
+RUN THE THING.
+npm run start
+...should console.log('This is an Electron application!') from the main.js file in app/
+NOTE it hangs till I close it.
 
 
 

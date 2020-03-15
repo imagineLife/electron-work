@@ -1,0 +1,6 @@
+FEATURES
+- desktop app
+- read/write to fs
+- created application menu
+- open things in native apps
+- show items in native 'finder' windows
