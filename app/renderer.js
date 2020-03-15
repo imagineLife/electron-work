@@ -85,12 +85,12 @@ openFileButton.addEventListener('click', () => {
 const saveMarkdown = () => {
 	mainP.saveMarkdown(filePathStr, markdownView.value)
 }
+const saveHtml = () => {
+	mainP.saveHtml(htmlView.innerHTML);
+}
 
 saveMarkdownButton.addEventListener('click', saveMarkdown)
-
-saveHtmlButton.addEventListener('click', () => {
-	mainP.saveHtml(htmlView.innerHTML);
-})
+saveHtmlButton.addEventListener('click', saveHtml)
 
 showFileButton.addEventListener('click', () => {
 	if(filePathStr) return;
