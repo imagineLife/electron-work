@@ -82,9 +82,11 @@ openFileButton.addEventListener('click', () => {
 	mainP.getFileFromUser()
 })
 
-saveMarkdownButton.addEventListener('click', () => {
+const saveMarkdown = () => {
 	mainP.saveMarkdown(filePathStr, markdownView.value)
-})
+}
+
+saveMarkdownButton.addEventListener('click', saveMarkdown)
 
 saveHtmlButton.addEventListener('click', () => {
 	mainP.saveHtml(htmlView.innerHTML);
@@ -102,6 +104,10 @@ openInDefaultButton.addEventListener('click', () => {
 	shell.openItem(filePathStr)
 })
 
+/*
+	ipcRenderer is an eventEmitter
+	https://www.electronjs.org/docs/api/ipc-renderer
+*/
 // runs on file-opened
 ipcRenderer.on('file-opened', (e, file, fileContent) => {
 	// Update app title
@@ -112,6 +118,9 @@ ipcRenderer.on('file-opened', (e, file, fileContent) => {
 	renderMarkdownToHtml(fileContent)
 	updateUserInterface(false)
 })
+
+//register event-listener
+ipcRenderer.on('save-markdown', saveMarkdown)
 
 //drag-n-drop content
 document.addEventListener('dragstart', e => e.preventDefault())
