@@ -74,6 +74,15 @@ const menuTemplate = [
 				accelerator: 'CommandOrControl+O'
 			},
 			{
+				label: 'Save File',
+				click(){
+					//emit event to server
+					eWin.webContents.send('save-markdown')
+				},
+				//custom hot-key
+				accelerator: 'CommandOrControl+S'
+			},
+			{
 				label: 'Copy',
 				role: 'copy'
 			},
