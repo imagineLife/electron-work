@@ -1,0 +1,10 @@
+ClipMaster
+
+- JADE instead of html
+... no manually-config'd files to allow jade!
+
+- forge includes many comments
+
+- electron-squirrel-startup
+  - https://github.com/mongodb-js/electron-squirrel-startup
+  - "default windlows event handler(s) for electron apps"
