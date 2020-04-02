@@ -2,7 +2,7 @@
   "name": "electron-work",
   "version": "0.0.1",
   "description": "a text && markdown editing app",
-  "main": "app/main.js",
+  "main": "app/main12.js",
   "scripts": {
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1"
