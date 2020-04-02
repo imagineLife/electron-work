@@ -4,3 +4,22 @@ FEATURES
 - created application menu
 - open things in native apps
 - show items in native 'finder' windows
+
+NOTES ON INTEGRATING TOOLS
+- ELECTRON PREBUILT COMPILE
+https://github.com/electron-userland/electron-prebuilt-compile
+... includes the compiling step. "There are no steps. It just works."
+... babel, ts, cs, jade, etc.
+... JS (es6+, TS, CS, GraphQL)
+... CS (LESS, CASS / SCSS, Stylus)
+... HTML (Jade Vue 2.0 single-file components)
+... JSON (CSON)
+
+Electron Forge
+- "c-r-a" for electron
+
+
+NEW APP: A CLIPBOARD MANAGER
+- listens to GLOBAL shortcuts
+- read && write to/from the clipboard
+- integrate react
