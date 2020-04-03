@@ -6,13 +6,11 @@
   "productName": "data-explorer",
   "homepage": "./",
   "scripts": {
-    "scripts": {
-      "wp": "webpack",
-      "wp-prod": "webpack --mode production --config webpack.build.config.js",
-      "prod": "npm run wp-prod && electron --noDevServer .",
-      "local": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
-      "postpackage": "electron-packager ./ --out=./builds"
-    },
+    "wp": "webpack",
+    "wp-prod": "webpack --mode production --config webpack.build.config.js",
+    "prod": "npm run wp-prod && electron --noDevServer .",
+    "local": "webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
+    "postpackage": "electron-packager ./ --out=./builds"
   },
   "keywords": [],
   "author": "",
