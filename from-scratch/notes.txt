@@ -1,12 +1,29 @@
 PACKAGES
 https://github.com/electron/electron-packager
 https://www.electronjs.org/docs/tutorial/installation
+https://github.com/MarshallOfSound/electron-devtools-installer
 
 install -D electron electron-packager
 install react
 npm init
 
+electron-packager - packages app with OS-specific bundles (*.app, *.exe, *.zip etc)
+
+electron-devtools-install - helps intsall DevTools extensions into electron
 
 PACKAGE.JSON
 productName - electron-packager uses it as the appName
 homepage - 
+
+
+MAIN ELECTRON PROCESS
+- creates app window
+- takes care of loading the index.html pg, (produced by webpack)
+- handles the closing of the app window
+- can add react dev tools extension
+- main.js
+**NOTE** this must coordinate with the "main" entry in package.json
+
+
+
+
