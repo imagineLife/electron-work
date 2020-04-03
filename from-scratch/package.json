@@ -1,8 +1,10 @@
 {
   "name": "from-scratch",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "main.js",
+  "productName": "data-explorer",
+  "homepage": "./",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "electron ."
@@ -12,5 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "electron": "^8.2.0"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
