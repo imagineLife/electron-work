@@ -6,11 +6,10 @@ const App = () => {
 }
 
 /*
-	
-	... manually build div?!
-	let root = document.createElement('div')
-	root.id = 'root'
-	document.body.appendChild(root)
+	... manually build div
 */
+let root = document.createElement('div')
+root.id = 'app'
+document.body.appendChild(root)
 
 ReactDOM.render(<App />, document.getElementById("app"));
