@@ -1,7 +1,12 @@
-install electron
+PACKAGES
+https://github.com/electron/electron-packager
+https://www.electronjs.org/docs/tutorial/installation
+
+install -D electron electron-packager
 install react
 npm init
 
-Package.json
+
+PACKAGE.JSON
 productName - electron-packager uses it as the appName
-homepage
+homepage - 
