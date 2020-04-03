@@ -1,0 +1,7 @@
+install electron
+install react
+npm init
+
+Package.json
+productName - electron-packager uses it as the appName
+homepage
