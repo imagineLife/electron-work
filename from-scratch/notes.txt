@@ -16,6 +16,13 @@ productName - electron-packager uses it as the appName
 homepage - 
 
 
+PLUGINS && deps
+npm install -D webpack webpack-cli webpack-dev-server @babel/core @babel/preset-react babili-webpack-plugin babel-loader css-loader file-loader style-loader html-webpack-plugin mini-css-extract-plugin
+
+
+Babel Config
+
+
 MAIN ELECTRON PROCESS
 - creates app window
 - takes care of loading the index.html pg, (produced by webpack)
