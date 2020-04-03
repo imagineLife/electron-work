@@ -5,4 +5,12 @@ const App = () => {
 	return(<p>react component</p>)
 }
 
+/*
+	
+	... manually build div?!
+	let root = document.createElement('div')
+	root.id = 'root'
+	document.body.appendChild(root)
+*/
+
 ReactDOM.render(<App />, document.getElementById("app"));
