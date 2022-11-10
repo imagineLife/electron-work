@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/imagineLife/electron-work#readme",
   "dependencies": {
-    "electron": "^3.0.10",
+    "electron": "^18.3.7",
     "marked": "^0.8.0"
   },
   "devDependencies": {
